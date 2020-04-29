@@ -34,3 +34,4 @@ app.post("/api/workouts", ({body},res) => {
     })
 })
 // Route for getting the last 7 exercises
+module.exports = app;
