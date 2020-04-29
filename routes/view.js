@@ -15,3 +15,4 @@ app.get("/exercise", (req,res) => {
 app.get("/stats", (req,res) => {
     res.sendFile(path.join(_dirname,"./stats.html"))
 })
+module.exports = app;

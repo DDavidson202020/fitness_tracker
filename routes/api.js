@@ -11,7 +11,7 @@ app.use(express.static("public"));
 
 // Route for getting the last workout from database
 app.get("/api/workouts", (req, res) => {
-    db.Exercise.find({}, (err, data) => {
+    db.Workout.find({}, (err, data) => {
         if (err) throw err;
         res.json(data);
     })
@@ -19,7 +19,7 @@ app.get("/api/workouts", (req, res) => {
 
 // Route for updating exercise
 app.put("/api/workouts/:id", (req, res) => {
-    db.Exercise.findByIdAndUpdate(
+    db.Workout.findByIdAndUpdate(
         req.params.id,
         { $push: {exercises: req.body}}, (err, data) => {
             if(err) throw err;
@@ -28,7 +28,7 @@ app.put("/api/workouts/:id", (req, res) => {
 })
 // Route for creating exercise
 app.post("/api/workouts", ({body},res) => {
-    db.Exercise.create(body, (err,data) => {
+    db.Workout.create(body, (err,data) => {
         if (err) throw err;
         res.json(data);
     })
