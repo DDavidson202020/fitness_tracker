@@ -27,11 +27,10 @@ app.put("/api/workouts/:id", (req, res) => {
         })
 })
 // Route for creating exercise
-app.post("/api/workouts", (req,res) => {
-    db.Exercise.create({ $push: {exercises: req.body}}, (err,data) => {
+app.post("/api/workouts", ({body},res) => {
+    db.Exercise.create(body, (err,data) => {
         if (err) throw err;
         res.json(data);
     })
 })
 // Route for getting the last 7 exercises
-app.get("/api/workouts/range", )
