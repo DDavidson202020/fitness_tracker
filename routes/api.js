@@ -22,7 +22,7 @@ app.get("/api/workouts", (req, res) => {
 app.put("/api/workouts/:id", (req, res) => {
     db.Workout.findByIdAndUpdate(
         req.params.id,
-        { $push: {exercises: req.body}, $set: {totalDuration: req.body.duration}}, (err, data) => {
+        { $push: {exercises: req.body}, $inc: {totalDuration: req.body.duration}}, (err, data) => {
             if(err) throw err;
             res.json(data);
             console.log(req.body.duration)
